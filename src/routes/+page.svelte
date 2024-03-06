@@ -20,7 +20,7 @@
   {#if $loaded}
     {#if $isMetaMaskPresent}
       {#if Boolean($walletState.account)}
-        <p class="text-white">{$walletState.account}</p>
+        <p class="text-blue-500">{$walletState.account}</p>
         <CopyButton text={$walletState.account} />
       {:else}
         <button
