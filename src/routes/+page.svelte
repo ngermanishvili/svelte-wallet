@@ -3,8 +3,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import CopyButton from "../components/copy-button.svelte";
-  import BentoExample from "$lib/components/ui/BentoGrid/BentoExample.svelte";
-  import TypeWritterExample from "$lib/components/ui/TypewriterEffect/TypeWritterExample.svelte";
+  import CoinStore from "../lib/stores/CoinStore.svelte";
+  import Navbar from "$lib/components/ui/FloatingNavbar/Navbar.svelte";
 
   const { walletState, isMetaMaskPresent, connect, loaded, init } =
     MetaMaskStore();
@@ -14,17 +14,22 @@
   });
 </script>
 
-<TypeWritterExample />
+<div class="flex justify-center items-center">
+  <Navbar />
+  <span class="text-2xl font-bold uppercase mt-8">Nika Germanishili</span>
+</div>
 
-<div class="flex justify-center items-center m-10">
+<div class="mt-[100px] flex justify-center items-center">
   {#if $loaded}
     {#if $isMetaMaskPresent}
       {#if Boolean($walletState.account)}
-        <p class="text-blue-500">{$walletState.account}</p>
-        <CopyButton text={$walletState.account} />
+        <div class="bg-violet-500 rounded-md flex justify-center items-center">
+          <p class="text-whitep-4">{$walletState.account}</p>
+          <CopyButton text={$walletState.account} />
+        </div>
       {:else}
         <button
-          class="btn flex justify-center items-center m-auto"
+          class="btn flex justify-center items-center m-auto mt-[20px] p-4 bg-violet-500"
           on:click={connect}>Connect Your Wallet</button
         >
       {/if}
@@ -36,9 +41,9 @@
   {/if}
 </div>
 {#if $walletState.account}
-  <div class="flex justify-center items-center m-10">
+  <div class="flex justify-center items-center">
     <button
-      class="btn flex justify-center items-center m-auto bg-red-400 text-white w-[250px] max-w-[100%]"
+      class="btn flex justify-center items-center m-auto bg-violet-500 text-white w-[250px] max-w-[100%] mt-[20px]"
       on:click={() => goto("/about")}
     >
       View Your Cabinet
@@ -49,4 +54,4 @@
     To view your Cabinet, please connect your wallet first.
   </p>
 {/if}
-<BentoExample />
+<CoinStore />

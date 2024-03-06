@@ -3,6 +3,7 @@
   import { MetaMaskStore } from "$lib";
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
+  import BentoExample from "$lib/components/ui/BentoGrid/BentoExample.svelte";
 
   const { walletState, init } = MetaMaskStore();
 
@@ -12,7 +13,7 @@
 </script>
 
 <div>
-  <button class="btn ml-4 mt-4" on:click={() => goto("/")}
+  <button class="btn ml-4 mt-4 bg-purple-500" on:click={() => goto("/")}
     >Back to main page</button
   >
 </div>
@@ -22,12 +23,15 @@
     <div
       class="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2"
     >
-      <h3 class="!m-0 max-w-xs !pb-2 text-base font-bold text-slate-100">
-        Your Wallet Address
+      <h3
+        class="!m-0 max-w-xs !pb-2 text-base font-bold text-slate-100 uppercase"
+      >
+        hover to see your wallet adress
       </h3>
       <div class="!m-0 !p-0 text-base font-normal">
         <span class="text-slate-500"> </span>
       </div>
+
       <div
         class="mt-4 flex w-full flex-1 rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500"
       >
@@ -37,4 +41,10 @@
       </div>
     </div>
   </PinContainer>
+  <button class="bg-purple-500 p-4 btn" on:click={() => goto("/chat")}>
+    GO TO OPENAI API PAGE</button
+  >
+</div>
+<div class="p-2">
+  <BentoExample />
 </div>
