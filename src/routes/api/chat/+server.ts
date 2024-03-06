@@ -1,10 +1,9 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import { OPENAI_API_KEY } from '$env/static/private';
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
-    apiKey: OPENAI_API_KEY,
+    apiKey: "YOUR-OPENAI-API-KEY",
 });
 
 // Set the runtime to edge for best performance
