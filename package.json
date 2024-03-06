@@ -25,10 +25,13 @@
 	"type": "module",
 	"dependencies": {
 		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"ai": "^3.0.5",
 		"clsx": "^2.1.0",
 		"daisyui": "^4.7.2",
 		"ethers": "^6.11.1",
+		"install": "^0.13.0",
 		"lucide-svelte": "^0.344.0",
+		"openai": "^4.28.4",
 		"svelte-inview": "^4.0.2",
 		"svelte-motion": "^0.12.2",
 		"svelte-routing": "^2.12.0",

@@ -4,6 +4,7 @@
   import { goto } from "$app/navigation";
   import CopyButton from "../components/copy-button.svelte";
   import BentoExample from "$lib/components/ui/BentoGrid/BentoExample.svelte";
+  import TypeWritterExample from "$lib/components/ui/TypewriterEffect/TypeWritterExample.svelte";
 
   const { walletState, isMetaMaskPresent, connect, loaded, init } =
     MetaMaskStore();
@@ -13,9 +14,8 @@
   });
 </script>
 
-<h1 class="flex justify-center items-center mt-10 p-4">
-  Welcome to Nika Germanishvili NFT Collection
-</h1>
+<TypeWritterExample />
+
 <div class="flex justify-center items-center m-10">
   {#if $loaded}
     {#if $isMetaMaskPresent}
@@ -49,5 +49,4 @@
     To view your Cabinet, please connect your wallet first.
   </p>
 {/if}
-
 <BentoExample />

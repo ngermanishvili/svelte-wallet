@@ -2,6 +2,7 @@
   import PinContainer from "$lib/components/ui/ThreeDPin/PinContainer.svelte";
   import { MetaMaskStore } from "$lib";
   import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
 
   const { walletState, init } = MetaMaskStore();
 
@@ -9,6 +10,12 @@
     init();
   });
 </script>
+
+<div>
+  <button class="btn ml-4 mt-4" on:click={() => goto("/")}
+    >Back to main page</button
+  >
+</div>
 
 <div class="flex h-[40rem] w-full items-center justify-center">
   <PinContainer title={$walletState.account} href="https://sveltekit.io">
